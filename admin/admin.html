@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÇALDIRAN GAZİNO | Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<section id="loginScreen" class="admin-card">
+  <h2>Admin Girişi</h2>
+
+  <form id="loginForm">
+    <div class="form-group">
+      <label>Kullanıcı Adı</label>
+      <input type="text" id="adminUser" required>
+    </div>
+
+    <div class="form-group">
+      <label>Şifre</label>
+      <input type="password" id="adminPass" required>
+    </div>
+
+    <button type="submit">Giriş Yap</button>
+  </form>
+</section>
+
+<div id="adminPanel" style="display:none;">
+
+  <header class="admin-header">
+    <h1>ÇALDIRAN GAZİNO</h1>
+    <p>YÖNETİM PANELİ</p>
+    <button id="logoutBtn" class="cancel-btn">Çıkış Yap</button>
+  </header>
+
+  <main class="admin-container">
+
+    <section class="admin-card">
+      <h2>Ürün Ekle / Güncelle</h2>
+
+      <form id="productForm">
+        <input type="hidden" id="editId">
+
+        <div class="form-group">
+          <label>Ürün Adı</label>
+          <input type="text" id="productName" required>
+        </div>
+
+        <div class="form-group">
+          <label>Kategori</label>
+          <select id="productCategory" required>
+            <option value="">Kategori Seç</option>
+            <option value="sicak">Sıcak İçecekler</option>
+            <option value="soguk">Soğuk İçecekler</option>
+            <option value="tatli">Tatlılar</option>
+            <option value="yiyecek">Yiyecekler</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Fiyat</label>
+          <input type="number" id="productPrice" required>
+        </div>
+
+        <div class="form-group">
+          <label>Fotoğraf Linki</label>
+          <input type="url" id="productImageUrl" placeholder="https://...">
+        </div>
+
+        <button type="submit" id="saveBtn">Kaydet</button>
+        <button type="button" id="cancelBtn" class="cancel-btn">Temizle</button>
+      </form>
+    </section>
+
+    <section class="admin-card">
+      <h2>Mevcut Ürünler</h2>
+      <div id="productList" class="product-list"></div>
+    </section>
+
+  </main>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>
